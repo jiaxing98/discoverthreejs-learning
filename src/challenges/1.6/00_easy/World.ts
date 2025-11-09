@@ -1,10 +1,10 @@
+import { createCamera } from '@/World/components/camera'
+import { createScene } from '@/World/components/scene'
 import type { PerspectiveCamera, Scene, WebGLRenderer } from 'three'
-import { createCamera } from './components/camera'
-import { createCube } from './components/cube'
-import { createLight } from './components/light'
-import { createScene } from './components/scene'
-import { createRenderer } from './systems/renderer'
-import { Resizer } from './systems/Resizer'
+import { createRenderer } from './renderer'
+import { createCube } from '@/World/components/cube'
+import { createLight } from '@/World/components/light'
+import { Resizer } from '@/World/systems/Resizer'
 
 let camera: PerspectiveCamera
 let scene: Scene

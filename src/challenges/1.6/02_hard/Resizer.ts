@@ -1,17 +1,20 @@
 import type { PerspectiveCamera, WebGLRenderer } from 'three'
 
 const setSize = (container: Element, camera: PerspectiveCamera, renderer: WebGLRenderer) => {
+  const width = 256
+  const height = 256
   // set the camera's aspect ratio
-  camera.aspect = container.clientWidth / container.clientHeight
+  camera.aspect = width / height
 
   // update the camera's frustum
   camera.updateProjectionMatrix()
 
   // update the size of the renderer AND the canvas
-  renderer.setSize(container.clientWidth, container.clientHeight)
+  renderer.setSize(width, height)
 
   // set the pixel ratio (for mobile devices)
-  renderer.setPixelRatio(window.devicePixelRatio)
+  // renderer.setPixelRatio(4)
+  renderer.setPixelRatio(0.5)
 }
 
 class Resizer {

@@ -1,5 +1,6 @@
+import { World } from './challenges/1.6/02_hard/World'
 import './style.css'
-import { World } from './World/World'
+// import { World } from './World/World'
 
 function main() {
   const container = document.querySelector('#scene-container')!
