@@ -1,5 +1,11 @@
-import "./style.css";
+import './style.css'
+import { World } from './World/World'
 
-function main() {}
+function main() {
+  const container = document.querySelector('#scene-container')!
 
-main();
+  const world = new World(container)
+  world.render()
+}
+
+main()
