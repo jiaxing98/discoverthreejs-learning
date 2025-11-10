@@ -29,9 +29,9 @@ class World {
     camera.position.z -= 1
 
     const resizer = new Resizer(container, camera, renderer)
-    resizer.onResize = () => {
-      this.render()
-    }
+    // resizer.onResize = () => {
+    //   this.render()
+    // }
   }
 
   render() {

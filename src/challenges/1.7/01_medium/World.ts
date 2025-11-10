@@ -1,13 +1,14 @@
-import type { PerspectiveCamera, Scene, WebGLRenderer } from 'three'
-import { createCamera } from './components/camera'
-import { createCube } from './components/cube'
-import { createLight } from './components/light'
-import { createScene } from './components/scene'
-import { Loop } from './systems/Loop'
-import { createRenderer } from './systems/renderer'
-import { Resizer } from './systems/Resizer'
+import { createCube } from '@/World/components/cube'
+import { createScene } from '@/World/components/scene'
+import { Loop } from '@/World/systems/Loop'
+import { createRenderer } from '@/World/systems/renderer'
+import { Resizer } from '@/World/systems/Resizer'
+import type { Scene, WebGLRenderer } from 'three'
+import { createCamera } from './camera'
+import { createLight } from './light'
+import type { TickablePerspectiveCamera } from './Tickable'
 
-let camera: PerspectiveCamera
+let camera: TickablePerspectiveCamera
 let scene: Scene
 let renderer: WebGLRenderer
 let loop: Loop
@@ -20,10 +21,14 @@ class World {
     loop = new Loop(camera, scene, renderer)
     container.append(renderer.domElement)
 
+    camera.position.set(0, 0, 10)
+    loop.updatables.push(camera)
+
     const cube = createCube()
     loop.updatables.push(cube)
 
     const light = createLight()
+    loop.updatables.push(light)
 
     scene.add(cube, light)
 
